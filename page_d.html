@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bake House by Charisa - Premium Bakery</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- ตั้งค่า Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#c44b25',
+                            hover: '#a13d1e',
+                        },
+                        dark: '#161616',
+                    },
+                    fontFamily: {
+                        lobster: ['Lobster', 'cursive'],
+                        sans: ['Poppins', 'Prompt', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+            .hero-gradient {
+                background-image: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+            }
+            .header-gradient {
+                background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            }
+            .parallax {
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
+            }
+            .parallax-scroll {
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    </style>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', 'Prompt', sans-serif; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c44b25;
+            transition: width 0.4s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .category-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #c44b25;
+            transition: width 0.3s ease;
+        }
+        .category-tab.active::after { width: 100%; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="absolute top-0 left-0 w-full z-50 header-gradient py-4">
+        <div class="w-[90%] max-w-6xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 font-lobster text-2xl md:text-3xl text-white drop-shadow-md">
+                <img src="./images/logo1.png" alt="Bake House" class="w-12 h-12 object-contain">
+                <span>Bake House</span>
+            </a>
+            
+            <!-- Nav -->
+            <nav class="flex items-center gap-4 md:gap-8">
+                <a href="#home" class="nav-link relative text-gray-100 font-medium hover:text-primary active">Home</a>
+                <a href="#products" class="nav-link relative text-gray-100 font-medium hover:text-primary">Products</a>
+                <a href="#explore" class="nav-link relative text-gray-100 font-medium hover:text-primary">Explore</a>
+                <a href="#featured" class="nav-link relative text-gray-100 font-medium hover:text-primary">Featured</a>
+                <a href="#contact" class="nav-link relative text-gray-100 font-medium hover:text-primary">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-start bg-black" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%), url('./images/io1.png');">
+        <div class="w-[90%] max-w-6xl mx-auto flex justify-end px-5 pt-24 pb-12">
+            <div class="max-w-xl text-left text-white">
+                <p class="text-primary font-lobster text-lg md:text-xl tracking-widest mb-2">Delicious Cafe</p>
+                <h1 class="font-lobster text-4xl md:text-6xl leading-tight mb-8 drop-shadow-lg">
+                    Sweet Treats,<br>Perfect Eats
+                </h1>
+                <div class="flex justify-start">
+                    <a href="#products" class="bg-primary hover:bg-primary-hover px-8 py-3 rounded font-semibold transition-all duration-300 hover:-translate-y-0.5">
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Products -->
+    <section id="products" class="py-20 px-5 bg-amber-50">
+        <h2 class="font-lobster text-3xl md:text-4xl text-center mb-10 text-gray-900">Top Products</h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Product 1 -->
+            <div class="bg-stone-800 rounded-lg overflow-hidden text-white relative group hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl">
+                <img src="./images/w1.PNG" alt="Whole Grain Bread" class="w-full h-64 object-cover">
+                <p class="absolute bottom-20 left-4 text-xl font-semibold">40 Baht</p>
+                <i class="fa-solid fa-circle-info absolute top-3 right-4 text-white text-lg"></i>
+                <div class="px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm">40 Baht</p>
+                        <h4 class="text-sm font-normal text-gray-200">Whole Grain Bread</h4>
+                    </div>
+                    <button class="bg-primary hover:bg-primary-hover px-4 py-1 rounded text-sm transition-colors">Add</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="bg-stone-800 rounded-lg overflow-hidden text-white relative group hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl">
+                <img src="./images/w2.PNG" alt="Whole Grain Bread" class="w-full h-64 object-cover">
+                <p class="absolute bottom-20 left-4 text-xl font-semibold">40 Baht</p>
+                <i class="fa-solid fa-circle-info absolute top-3 right-4 text-white text-lg"></i>
+                <div class="px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm">40 Baht</p>
+                        <h4 class="text-sm font-normal text-gray-200">Whole Grain Bread</h4>
+                    </div>
+                    <button class="bg-primary hover:bg-primary-hover px-4 py-1 rounded text-sm transition-colors">Add</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="bg-stone-800 rounded-lg overflow-hidden text-white relative group hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl">
+                <img src="./images/w3.PNG" alt="Whole Grain Bread" class="w-full h-64 object-cover">
+                <p class="absolute bottom-20 left-4 text-xl font-semibold">40 Baht</p>
+                <i class="fa-solid fa-circle-info absolute top-3 right-4 text-white text-lg"></i>
+                <div class="px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm">40 Baht</p>
+                        <h4 class="text-sm font-normal text-gray-200">Whole Grain Bread</h4>
+                    </div>
+                    <button class="bg-primary hover:bg-primary-hover px-4 py-1 rounded text-sm transition-colors">Add</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="bg-stone-800 rounded-lg overflow-hidden text-white relative group hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl">
+                <img src="./images/w4.PNG" alt="Whole Grain Bread" class="w-full h-64 object-cover">
+                <p class="absolute bottom-20 left-4 text-xl font-semibold">40 Baht</p>
+                <i class="fa-solid fa-circle-info absolute top-3 right-4 text-white text-lg"></i>
+                <div class="px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm">40 Baht</p>
+                        <h4 class="text-sm font-normal text-gray-200">Whole Grain Bread</h4>
+                    </div>
+                    <button class="bg-primary hover:bg-primary-hover px-4 py-1 rounded text-sm transition-colors">Add</button>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="bg-stone-800 rounded-lg overflow-hidden text-white relative group hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl">
+                <img src="./images/w5.PNG" alt="Whole Grain Bread" class="w-full h-64 object-cover">
+                <p class="absolute bottom-20 left-4 text-xl font-semibold">40 Baht</p>
+                <i class="fa-solid fa-circle-info absolute top-3 right-4 text-white text-lg"></i>
+                <div class="px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm">40 Baht</p>
+                        <h4 class="text-sm font-normal text-gray-200">Whole Grain Bread</h4>
+                    </div>
+                    <button class="bg-primary hover:bg-primary-hover px-4 py-1 rounded text-sm transition-colors">Add</button>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="bg-stone-800 rounded-lg overflow-hidden text-white relative group hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl">
+                <img src="./images/w6.PNG" alt="Whole Grain Bread" class="w-full h-64 object-cover">
+                <p class="absolute bottom-20 left-4 text-xl font-semibold">40 Baht</p>
+                <i class="fa-solid fa-circle-info absolute top-3 right-4 text-white text-lg"></i>
+                <div class="px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm">40 Baht</p>
+                        <h4 class="text-sm font-normal text-gray-200">Whole Grain Bread</h4>
+                    </div>
+                    <button class="bg-primary hover:bg-primary-hover px-4 py-1 rounded text-sm transition-colors">Add</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner 1 -->
+    <section class="w-full min-h-[400px] parallax-scroll bg-amber-100" style="background-image: url('./images/we1.1.PNG');" aria-label="Promotion Banner"></section>
+
+    <!-- Explore More -->
+    <section id="explore" class="py-20 px-5 bg-white">
+        <h2 class="font-lobster text-3xl md:text-4xl text-center mb-10 text-gray-900">Explore More</h2>
+        
+        <!-- Category Tabs -->
+        <div class="max-w-3xl mx-auto flex flex-wrap justify-center gap-5 border-b-2 border-gray-100 pb-4 mb-10">
+            <button class="category-tab relative text-gray-500 font-medium active py-1 px-2 hover:text-primary">Cake</button>
+            <button class="category-tab relative text-gray-500 font-medium py-1 px-2 hover:text-primary">Muffins</button>
+            <button class="category-tab relative text-gray-500 font-medium py-1 px-2 hover:text-primary">Croissant</button>
+            <button class="category-tab relative text-gray-500 font-medium py-1 px-2 hover:text-primary">Bread</button>
+            <button class="category-tab relative text-gray-500 font-medium py-1 px-2 hover:text-primary">Tart</button>
+            <button class="category-tab relative text-gray-500 font-medium py-1 px-2 hover:text-primary">Favorite</button>
+        </div>
+        
+        <!-- Explore Grid -->
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="overflow-hidden rounded">
+                <img src="./images/q1.png" alt="Muffin" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="overflow-hidden rounded">
+                <img src="./images/q2.png" alt="Berry Cake" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="overflow-hidden rounded">
+                <img src="./images/q3.png" alt="Fruit Cake" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="overflow-hidden rounded">
+                <img src="./images/q4.png" alt="Cake" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="overflow-hidden rounded">
+                <img src="./images/q5.png" alt="Chocolate Cake" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="overflow-hidden rounded">
+                <img src="./images/q6.png" alt="Cupcake" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner 2 -->
+    <section class="w-full min-h-[400px] parallax-scroll bg-gray-900" style="background-image: url('./images/aboutus.PNG');" aria-label="About Our Bakery"></section>
+
+    <!-- Featured Treats -->
+    <section id="featured" class="py-20 px-5 bg-white">
+        <h2 class="font-lobster text-3xl md:text-4xl text-center mb-10 text-gray-900">Featured Treats</h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="group hover:-translate-y-2 transition-all duration-300">
+                <img src="./images/p6.2.png" alt="Doughnuts" class="w-full aspect-square object-cover rounded">
+                <div class="flex justify-between items-center pt-4 px-1">
+                    <h3 class="text-lg font-semibold text-gray-900">Doughnuts</h3>
+                    <span class="text-lg font-bold text-primary">8 Baht</span>
+                </div>
+            </div>
+            
+            <div class="group hover:-translate-y-2 transition-all duration-300">
+                <img src="./images/p6.3.png" alt="Brownies" class="w-full aspect-square object-cover rounded">
+                <div class="flex justify-between items-center pt-4 px-1">
+                    <h3 class="text-lg font-semibold text-gray-900">Brownies</h3>
+                    <span class="text-lg font-bold text-primary">8 Baht</span>
+                </div>
+            </div>
+            
+            <div class="group hover:-translate-y-2 transition-all duration-300">
+                <img src="./images/p6.1.png" alt="Puff Pastry" class="w-full aspect-square object-cover rounded">
+                <div class="flex justify-between items-center pt-4 px-1">
+                    <h3 class="text-lg font-semibold text-gray-900">Puff Pastry</h3>
+                    <span class="text-lg font-bold text-primary">8 Baht</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-gray-400 py-16 px-5">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-wrap justify-between items-center gap-5 mb-8">
+                <div class="font-lobster text-3xl text-primary">Bake House</div>
+                <div class="flex gap-4">
+                    <a href="#" class="bg-white text-black w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="bg-white text-black w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+                    <a href="#" class="bg-white text-black w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="bg-white text-black w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="h-px bg-white/10 mb-8"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Column 1 -->
+                <div>
+                    <h2 class="font-lobster text-xl text-white mb-5 tracking-wider">About Us</h2>
+                    <p class="mb-3"><i class="fa-solid fa-phone mr-3"></i> (02) 807-4500</p>
+                    <p class="mb-3"><i class="fa-solid fa-envelope mr-3"></i> S6952D10023@gmail.com</p>
+                    <p><i class="fa-solid fa-location-dot mr-3"></i> SAU, Phetkasem Road, Bangkok</p>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h2 class="font-lobster text-xl text-white mb-5 tracking-wider">Explore</h2>
+                    <a href="#home" class="block mb-3 hover:text-primary hover:translate-x-1 transition-transform">Home</a>
+                    <a href="#products" class="block mb-3 hover:text-primary hover:translate-x-1 transition-transform">Products</a>
+                    <a href="#explore" class="block mb-3 hover:text-primary hover:translate-x-1 transition-transform">Categories</a>
+                    <a href="#featured" class="block hover:text-primary hover:translate-x-1 transition-transform">Featured Treats</a>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h2 class="font-lobster text-xl text-white mb-5 tracking-wider">Recent News</h2>
+                    <div class="flex gap-4 items-center mb-4">
+                        <img src="images/55.png" alt="News" class="w-[70px] h-[60px] object-cover rounded">
+                        <div>
+                            <span class="text-primary text-xs font-medium">Sept 16, 2026</span>
+                            <p class="text-gray-300 text-sm">Puff pastry bliss.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                        <img src="images/66.png" alt="News" class="w-[70px] h-[60px] object-cover rounded">
+                        <div>
+                            <span class="text-primary text-xs font-medium">Sept 10, 2026</span>
+                            <p class="text-gray-300 text-sm">Freshly baked artisan loaves.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-500 text-sm mt-12 pt-5 border-t border-white/5">
+                © 2026 Bake House Project. Crafted with 🖌️ by charisa.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Category tabs
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+        
+        // Active nav link on click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
